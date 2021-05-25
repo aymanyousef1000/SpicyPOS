@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_SpicyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_Cat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAT_Cover" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TB_Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="product_price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="product_code" Type="int" />
+          <Property Name="product_quantity" Type="int" />
+          <Property Name="product_category" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_supplier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TB_Purchases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="purchases_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="purchases_supplier" Type="nvarchar" MaxLength="50" />
+          <Property Name="purchases_price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="purchases_quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_Supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Supplier_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="tax_value" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DB_SpicyModelStoreContainer">
+          <EntitySet Name="TB_Cat" EntityType="Self.TB_Cat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Products" EntityType="Self.TB_Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Purchases" EntityType="Self.TB_Purchases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Supplier" EntityType="Self.TB_Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_users" EntityType="Self.TB_users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_SpicyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_Cat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAT_Cover" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DB_SpicyEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_Cat" EntityType="Self.TB_Cat" />
+          <EntitySet Name="TB_Products" EntityType="DB_SpicyModel.TB_Products" />
+          <EntitySet Name="TB_Purchases" EntityType="DB_SpicyModel.TB_Purchases" />
+          <EntitySet Name="TB_Supplier" EntityType="DB_SpicyModel.TB_Supplier" />
+          <EntitySet Name="TB_users" EntityType="DB_SpicyModel.TB_users" />
+        </EntityContainer>
+        <EntityType Name="TB_Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="product_code" Type="Int32" />
+          <Property Name="product_quantity" Type="Int32" />
+          <Property Name="product_category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TB_Purchases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="purchases_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="purchases_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="purchases_price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="purchases_quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TB_Supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Supplier_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TB_users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tax_value" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_SpicyModelStoreContainer" CdmEntityContainer="DB_SpicyEntities3">
+          <EntitySetMapping Name="TB_Cat">
+            <EntityTypeMapping TypeName="DB_SpicyModel.TB_Cat">
+              <MappingFragment StoreEntitySet="TB_Cat">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CAT_Name" ColumnName="CAT_Name" />
+                <ScalarProperty Name="CAT_Cover" ColumnName="CAT_Cover" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Products">
+            <EntityTypeMapping TypeName="DB_SpicyModel.TB_Products">
+              <MappingFragment StoreEntitySet="TB_Products">
+                <ScalarProperty Name="product_supplier" ColumnName="product_supplier" />
+                <ScalarProperty Name="product_category" ColumnName="product_category" />
+                <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+                <ScalarProperty Name="product_code" ColumnName="product_code" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Purchases">
+            <EntityTypeMapping TypeName="DB_SpicyModel.TB_Purchases">
+              <MappingFragment StoreEntitySet="TB_Purchases">
+                <ScalarProperty Name="purchases_quantity" ColumnName="purchases_quantity" />
+                <ScalarProperty Name="purchases_price" ColumnName="purchases_price" />
+                <ScalarProperty Name="purchases_supplier" ColumnName="purchases_supplier" />
+                <ScalarProperty Name="purchases_name" ColumnName="purchases_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Supplier">
+            <EntityTypeMapping TypeName="DB_SpicyModel.TB_Supplier">
+              <MappingFragment StoreEntitySet="TB_Supplier">
+                <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_users">
+            <EntityTypeMapping TypeName="DB_SpicyModel.TB_users">
+              <MappingFragment StoreEntitySet="TB_users">
+                <ScalarProperty Name="tax_value" ColumnName="tax_value" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
